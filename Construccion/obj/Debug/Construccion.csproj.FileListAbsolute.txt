@@ -9,3 +9,14 @@ C:\Users\pabli\source\repos\Construccion\Construccion\obj\Debug\Construccion.csp
 C:\Users\pabli\source\repos\Construccion\Construccion\obj\Debug\Construccion.exe
 C:\Users\pabli\source\repos\Construccion\Construccion\obj\Debug\Construccion.pdb
 C:\Users\pabli\source\repos\Construccion\Construccion\obj\Debug\Construccion.FormRifa.resources
+C:\Users\pabli\OneDrive - UTN San Francisco\Facultad\2022\Construccion de Software\Codigo\Construccion\Construccion\bin\Debug\Construccion.exe.config
+C:\Users\pabli\OneDrive - UTN San Francisco\Facultad\2022\Construccion de Software\Codigo\Construccion\Construccion\bin\Debug\Construccion.exe
+C:\Users\pabli\OneDrive - UTN San Francisco\Facultad\2022\Construccion de Software\Codigo\Construccion\Construccion\bin\Debug\Construccion.pdb
+C:\Users\pabli\OneDrive - UTN San Francisco\Facultad\2022\Construccion de Software\Codigo\Construccion\Construccion\obj\Debug\Construccion.csproj.AssemblyReference.cache
+C:\Users\pabli\OneDrive - UTN San Francisco\Facultad\2022\Construccion de Software\Codigo\Construccion\Construccion\obj\Debug\Construccion.csproj.SuggestedBindingRedirects.cache
+C:\Users\pabli\OneDrive - UTN San Francisco\Facultad\2022\Construccion de Software\Codigo\Construccion\Construccion\obj\Debug\Construccion.FormRifa.resources
+C:\Users\pabli\OneDrive - UTN San Francisco\Facultad\2022\Construccion de Software\Codigo\Construccion\Construccion\obj\Debug\Construccion.Properties.Resources.resources
+C:\Users\pabli\OneDrive - UTN San Francisco\Facultad\2022\Construccion de Software\Codigo\Construccion\Construccion\obj\Debug\Construccion.csproj.GenerateResource.cache
+C:\Users\pabli\OneDrive - UTN San Francisco\Facultad\2022\Construccion de Software\Codigo\Construccion\Construccion\obj\Debug\Construccion.csproj.CoreCompileInputs.cache
+C:\Users\pabli\OneDrive - UTN San Francisco\Facultad\2022\Construccion de Software\Codigo\Construccion\Construccion\obj\Debug\Construccion.exe
+C:\Users\pabli\OneDrive - UTN San Francisco\Facultad\2022\Construccion de Software\Codigo\Construccion\Construccion\obj\Debug\Construccion.pdb
