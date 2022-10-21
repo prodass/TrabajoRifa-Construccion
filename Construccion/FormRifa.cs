@@ -29,25 +29,26 @@ namespace Construccion
             bool formatoNombreNoEsValido = !Regex.Match(nombrePersona, @"^[A-Za-z]{3,10}$|^[A-Za-z]{3,10}\s[A-Za-z]{3,10}$").Success;
             bool formatoApellidoNoEsValido = !Regex.Match(apellidoPersona, @"^[A-Za-z]{3,13}$|^[A-Za-z]{3,13}\s[A-Za-z]{3,13}$").Success;
             bool formatoNumeroNoEsValido = !Regex.Match(numeroRifa, @"^(?:0|[1-9]\d{0,2})$").Success;
-            bool formatoDeEntradaValido = true;
+            bool formatoDeEntradaValido = false;
 
             if (formatoNombreNoEsValido)
             {
                 mostrarMensaje("El nombre ingresado no es valido!", "Error de formato");
                 tboxNombre.Clear();
-                formatoDeEntradaValido = false;
             }
-            if (formatoApellidoNoEsValido)
+            else if (formatoApellidoNoEsValido)
             {
                 mostrarMensaje("El apellido ingresado no es valido!", "Error de formato");
                 tboxApellido.Clear();
-                formatoDeEntradaValido = false;
             }
-            if (formatoNumeroNoEsValido)
+            else if (formatoNumeroNoEsValido)
             {
                 mostrarMensaje("El numero ingresado no es valido!", "Error de formato");
                 tboxNumero.Clear();
-                formatoDeEntradaValido = false;
+            }
+            else
+            {
+                formatoDeEntradaValido = true;
             }
 
             return formatoDeEntradaValido;
