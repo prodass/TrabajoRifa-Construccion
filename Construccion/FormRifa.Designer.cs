@@ -32,25 +32,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gboxRifa = new System.Windows.Forms.GroupBox();
-            this.tboxApellido = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.tboxNumero = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.tboxApellido = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnIngresar = new System.Windows.Forms.Button();
             this.gboxRifa.SuspendLayout();
             this.SuspendLayout();
             // 
             // tboxNombre
             // 
-            this.tboxNombre.Location = new System.Drawing.Point(110, 16);
+            this.tboxNombre.Location = new System.Drawing.Point(110, 19);
             this.tboxNombre.Name = "tboxNombre";
             this.tboxNombre.Size = new System.Drawing.Size(100, 20);
             this.tboxNombre.TabIndex = 0;
+            this.tboxNombre.TextChanged += new System.EventHandler(this.tboxNombre_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 19);
+            this.label1.Location = new System.Drawing.Point(36, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 1;
@@ -59,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 48);
+            this.label2.Location = new System.Drawing.Point(36, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 2;
@@ -67,7 +68,7 @@
             // 
             // gboxRifa
             // 
-            this.gboxRifa.Controls.Add(this.btnIngresar);
+            this.gboxRifa.Controls.Add(this.btnGuardar);
             this.gboxRifa.Controls.Add(this.tboxNumero);
             this.gboxRifa.Controls.Add(this.label3);
             this.gboxRifa.Controls.Add(this.tboxApellido);
@@ -81,28 +82,41 @@
             this.gboxRifa.TabStop = false;
             this.gboxRifa.Text = "Datos Rifa";
             // 
-            // tboxApellido
+            // btnGuardar
             // 
-            this.tboxApellido.Location = new System.Drawing.Point(110, 45);
-            this.tboxApellido.Name = "tboxApellido";
-            this.tboxApellido.Size = new System.Drawing.Size(100, 20);
-            this.tboxApellido.TabIndex = 3;
+            this.btnGuardar.Enabled = false;
+            this.btnGuardar.Location = new System.Drawing.Point(84, 103);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // tboxNumero
             // 
-            this.tboxNumero.Location = new System.Drawing.Point(110, 71);
+            this.tboxNumero.Location = new System.Drawing.Point(110, 74);
             this.tboxNumero.Name = "tboxNumero";
             this.tboxNumero.Size = new System.Drawing.Size(100, 20);
             this.tboxNumero.TabIndex = 5;
+            this.tboxNumero.TextChanged += new System.EventHandler(this.tboxNumero_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 74);
+            this.label3.Location = new System.Drawing.Point(36, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Numero (*):";
+            // 
+            // tboxApellido
+            // 
+            this.tboxApellido.Location = new System.Drawing.Point(110, 48);
+            this.tboxApellido.Name = "tboxApellido";
+            this.tboxApellido.Size = new System.Drawing.Size(100, 20);
+            this.tboxApellido.TabIndex = 3;
+            this.tboxApellido.TextChanged += new System.EventHandler(this.tboxApellido_TextChanged);
             // 
             // label4
             // 
@@ -113,24 +127,14 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "(*) Ingrese un numero de hasta 3 cifras.";
             // 
-            // btnIngresar
-            // 
-            this.btnIngresar.Location = new System.Drawing.Point(84, 100);
-            this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(75, 23);
-            this.btnIngresar.TabIndex = 6;
-            this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
-            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
-            // 
-            // Form1
+            // FormRifa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 219);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.gboxRifa);
-            this.Name = "Form1";
+            this.Name = "FormRifa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rifa";
             this.gboxRifa.ResumeLayout(false);
@@ -150,7 +154,7 @@
         private System.Windows.Forms.TextBox tboxNumero;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }
 

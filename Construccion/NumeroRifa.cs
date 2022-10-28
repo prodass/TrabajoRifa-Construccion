@@ -9,31 +9,31 @@ using System.Windows.Forms;
 
 namespace Construccion
 {
-    internal class Persona
+    internal class NumeroRifa
     {
         private string _nombre;
         private string _apellido;
         private int _numeroRifa;
 
-        public Persona(){}
+        public NumeroRifa(){}
 
-        public Persona(string nombre, string apellido, int numeroRifa)
+        public NumeroRifa(string nombre, string apellido, int numeroRifa)
         {
             this._nombre = nombre;
             this._apellido = apellido;
             this._numeroRifa = numeroRifa;
         }
 
-        public static List<Persona> listaPersonas = new List<Persona>()
+        public static List<NumeroRifa> listaPersonas = new List<NumeroRifa>()
         {
-            new Persona("Pablo","Rodas",350),
+            new NumeroRifa("Pablo","Rodas",350),
         };
 
-        public static void registrarPersona(string nombre, string apellido, string numeroRifa)
+        public static void registrarNuevaPersona(string nombre, string apellido, string numeroRifa)
         {
             int numeroRifaEntero = Convert.ToInt32(numeroRifa);
 
-            listaPersonas.Add(new Persona(nombre, apellido, numeroRifaEntero));
+            listaPersonas.Add(new NumeroRifa(nombre, apellido, numeroRifaEntero));
         }
 
         public static bool numeroRifaEstaDisponible(string numeroElegido)
@@ -41,7 +41,7 @@ namespace Construccion
             int numeroRifaAEntero = Convert.ToInt32(numeroElegido);
             bool estaDisponible = true;
 
-            for (int i = 0; i < Persona.listaPersonas.Count; i++)
+            for (int i = 0; i < NumeroRifa.listaPersonas.Count; i++)
             {
                 if (listaPersonas[i]._numeroRifa.Equals(numeroRifaAEntero))
                 {
