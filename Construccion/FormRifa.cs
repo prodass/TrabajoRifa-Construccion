@@ -19,96 +19,59 @@ namespace Construccion
             InitializeComponent();
         }
 
-        private void mostrarMensaje(string mensajeCuerpo, string mensajeTitulo)
+        private bool formatoNombreEsValido()
         {
-            MessageBox.Show(mensajeCuerpo, mensajeTitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            bool formatoEsValido = Regex.Match(tboxNombre.Text, @"^[A-Za-z]{3,10}$|^[A-Za-z]{3,10}\s[A-Za-z]{3,10}$").Success;
+
+            return formatoEsValido;
         }
-
-        private bool formatoDeEntradaEsValido(string nombrePersona, string apellidoPersona, string numeroRifa)
+        private bool formatoApellidoEsValido()
         {
-            bool formatoNombreEsValido = Regex.Match(nombrePersona, @"^[A-Za-z]{3,10}$|^[A-Za-z]{3,10}\s[A-Za-z]{3,10}$").Success;
-            bool formatoApellidoEsValido = Regex.Match(apellidoPersona, @"^[A-Za-z]{3,13}$|^[A-Za-z]{3,13}\s[A-Za-z]{3,13}$").Success;
-            bool formatoNumeroEsValido = Regex.Match(numeroRifa, @"^(?:0|[1-9]\d{0,2})$").Success;
-            bool formatoDeEntradaValido = false;
-
-            if (!formatoNombreEsValido)
-            {
-                mostrarMensaje("El nombre ingresado no es valido!", "Error de formato");
-                tboxNombre.Clear();
-            }
-            else if (!formatoApellidoEsValido)
-            {
-                mostrarMensaje("El apellido ingresado no es valido!", "Error de formato");
-                tboxApellido.Clear();
-            }
-            else if (!formatoNumeroEsValido)
-            {
-                mostrarMensaje("El numero ingresado no es valido!", "Error de formato");
-                tboxNumero.Clear();
-            }
-            else
-            {
-                formatoDeEntradaValido = true;
-            }
-
-            return formatoDeEntradaValido;
+            bool formatoEsValido = Regex.Match(tboxApellido.Text, @"^[A-Za-z]{3,13}$|^[A-Za-z]{3,13}\s[A-Za-z]{3,13}$").Success;
+          
+            return formatoEsValido;
         }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private bool formatoNumeroEsValido()
         {
-            if (formatoDeEntradaEsValido(tboxNombre.Text, tboxApellido.Text, tboxNumero.Text))
-            {
-                if (NumeroRifa.numeroRifaEstaDisponible(tboxNumero.Text))
-                {
-                    mostrarMensaje($"El numero {tboxNumero.Text} ha sido asignado a {tboxNombre.Text} {tboxApellido.Text}.", "Sistema de rifas");
+            bool formatoEsValido = Regex.Match(tboxNumero.Text, @"^(?:0|[1-9]\d{0,2})$").Success;
 
-                    NumeroRifa.registrarNuevaPersona(tboxNombre.Text, tboxApellido.Text, tboxNumero.Text);
-                }
-                else
-                {
-                    mostrarMensaje("El numero solicitado ya ha sido ingresado, por favor, ingrese otro!", "Sistema de rifas");
-                }
-            }
+            return formatoEsValido;
         }
 
         private void tboxNombre_TextChanged(object sender, EventArgs e)
         {
-            bool formatoNombreEsValido = Regex.Match(tboxNombre.Text, @"^[A-Za-z]{3,10}$|^[A-Za-z]{3,10}\s[A-Za-z]{3,10}$").Success;
-            bool activarBoton = true;
-
-            if (!formatoNombreEsValido)
-            {
-                activarBoton = false;
-            }
-
-            cambiarEstadoBoton(activarBoton);
+            cambiarEstadoBoton();
         }
         private void tboxApellido_TextChanged(object sender, EventArgs e)
         {
-            bool formatoApellidoEsValido = Regex.Match(apellidoPersona, @"^[A-Za-z]{3,13}$|^[A-Za-z]{3,13}\s[A-Za-z]{3,13}$").Success;
-            bool formatoEsValido = true;
-
-            if (Regex.Match(tboxApellido.Text, @"^[A-Za-z]{3,13}$|^[A-Za-z]{3,13}\s[A-Za-z]{3,13}$").Success)
-            {
-                formatoEsValido = true;
-            }
-
-            cambiarEstadoBoton(formatoEsValido);
+            cambiarEstadoBoton();
         }
         private void tboxNumero_TextChanged(object sender, EventArgs e)
         {
-            bool formatoEsValido = true;
-
-            if (Regex.Match(tboxNumero.Text, @"^(?:0|[1-9]\d{0,2})$").Success)
-            {
-                formatoEsValido = false;
-            }
-
-            cambiarEstadoBoton(formatoEsValido);
+            cambiarEstadoBoton();
         }
-        private void cambiarEstadoBoton(bool formatoEsValido)
+
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (formatoEsValido)
+            if (GestionRifa.numeroRifaEstaDisponible(tboxNumero.Text))
+            {
+                mostrarMensaje($"El numero {tboxNumero.Text} ha sido asignado a {tboxNombre.Text} {tboxApellido.Text}.", "Sistema de rifas");
+
+                GestionRifa.registrarNuevaRifa(tboxNombre.Text, tboxApellido.Text, tboxNumero.Text);
+            }
+            else
+            {
+                mostrarMensaje("El numero solicitado ya ha sido ingresado, por favor, ingrese otro!", "Sistema de rifas");
+            }
+        }
+        
+        private void mostrarMensaje(string mensajeCuerpo, string mensajeTitulo)
+        {
+            MessageBox.Show(mensajeCuerpo, mensajeTitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void cambiarEstadoBoton()
+        {
+            if (formatoNombreEsValido() && formatoApellidoEsValido() && formatoNumeroEsValido())
             {
                 btnGuardar.Enabled = true;
             }

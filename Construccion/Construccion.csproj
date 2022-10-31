@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,7 +53,8 @@
     <Compile Include="FormRifa.Designer.cs">
       <DependentUpon>FormRifa.cs</DependentUpon>
     </Compile>
-    <Compile Include="NumeroRifa.cs" />
+    <Compile Include="GestionRifa.cs" />
+    <Compile Include="Rifa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormRifa.resx">
